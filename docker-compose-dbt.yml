@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  postgres_dbt:
+    image: postgres:15
+    container_name: postgres_dbt
+    restart: always
+    environment:
+      POSTGRES_USER: valmir
+      POSTGRES_PASSWORD: valmir123
+      POSTGRES_DB: db_data
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_dbt_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_dbt_data:
